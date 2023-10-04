@@ -65,7 +65,5 @@ test.only('Verify the Dynyamic Dropdoen',async({page})=>{
             break
         }
     }
-    // let text = await page.locator('.placeHolderMainText').allTextContents()
-    // console.log(text)
     await page.pause()
 })
