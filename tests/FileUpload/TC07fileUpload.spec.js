@@ -17,7 +17,9 @@ test('single file upload', async ({ page }) => {
 
 test.only('Double file upload', async ({ page }) => {
     await page.goto('https://davidwalsh.name/demo/multiple-file-upload.php')
-    await page.locator('#filesToUpload').setInputFiles(['tests/UploadFile/kalyani_hadole_resume.pdf', 'tests/UploadFile/Oracle Class Assignment 3 - Que.pdf'])
+    await page.locator('#filesToUpload')
+        .setInputFiles(['tests/UploadFile/kalyani_hadole_resume.pdf',
+            'tests/UploadFile/Oracle Class Assignment 3 - Que.pdf'])
     await expect(page.locator('#fileList > li').first()).toHaveText('kalyani_hadole_resume.pdf')
     await expect(page.locator('#fileList > li').nth(1)).toHaveText('Oracle Class Assignment 3 - Que.pdf')
     await page.waitForTimeout(5000)
